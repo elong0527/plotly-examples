@@ -1,0 +1,28 @@
+<head>
+  <!-- Plotly.js -->
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+
+  <div id="myDiv" style="width: 480px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+ 
+
+<script>
+    <!-- JAVASCRIPT CODE GOES HERE --> 
+    
+var trace1 = {{ x1|tojson }}
+
+var trace2 = {{ x2|tojson }}
+
+var trace3 = {{ x3|tojson }}
+
+var data = [ trace1, trace2, trace3 ];
+
+var layout = {
+  title:'Line and Scatter Plot',
+  height: 400,
+  width: 480
+};
+
+Plotly.newPlot('myDiv', data, layout);
+  </script>

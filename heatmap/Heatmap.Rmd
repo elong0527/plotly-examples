@@ -1,0 +1,28 @@
+
+### A template for plotly Heatmap
+
+* hoverinfo controls which part of info are shown in the datapoints
+* text format is controled by [html token](https://plot.ly/r/reference/#layout-annotations-text) 
+
+```{r, message = F}
+set.seed(123)
+library(plotly)
+
+z <- round(matrix( rnorm(100), ncol = 10), 3)
+x <- paste0("A",1:10)
+y <- paste0("B",1:10)
+Info1 <- matrix(1:100, ncol = 10)
+Info2 <- matrix(1:100, ncol = 10) + 100
+Info = matrix( paste0("z: ", z, "<br>",
+                      "L1: ",Info1, "<br>",
+                      "L2: ",Info2 ), ncol = 10)
+
+xlab <- list(title = "x Axis")
+ylab <- list(title = "y Axis")
+
+p <- plot_ly(x = x, y = y, z = z, 
+        hoverinfo = "z+text",
+        type = "heatmap",text = Info)
+layout(p, xaxis = xlab, yaxis = ylab, title = "tmp")
+```
+
