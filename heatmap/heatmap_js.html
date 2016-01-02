@@ -1,0 +1,39 @@
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    
+    <body>
+    
+    <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+
+  <script>
+    var x0 =  ["a","b","c"];
+    var y0 =  ["d", "e", "f"];
+    var text = [["1<br>2", "1<br>2", "1<br>2"],
+               ["1<br>2", "1<br>2", "1<br>2"],
+               ["1<br>2", "1<br>2", "1<br>2"]
+              ];
+              
+    var data = [
+      {
+        x: x0,
+        y: y0,
+        text: text,
+        z: [[1, 20, 30], [20, 1, 60], [30, 60, 1]],
+        type: 'heatmap',
+        showscale: true,
+        colorscale: "Viridis",
+        hoverinfo: "text"
+      }
+      ];
+    
+    var layout = {
+      title: "This is title",
+    }
+    
+    Plotly.newPlot('myDiv', data, layout);
+  </script>
+    
+</body>
